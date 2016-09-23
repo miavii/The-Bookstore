@@ -2,6 +2,7 @@ package mia.lahtinen.web;
 
 import mia.lahtinen.domain.Book;
 import mia.lahtinen.domain.BookRepository;
+import mia.lahtinen.domain.CategoryRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BookController {
 	@Autowired
 	private BookRepository repository;
+	@Autowired
+	private CategoryRepository cRepository;
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String Books(Model model) {
@@ -29,6 +32,7 @@ public class BookController {
 	@RequestMapping(value="/addBook")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
+		model.addAttribute("categories", cRepository.findAll());
 		return "addBook";
 	}
 	
