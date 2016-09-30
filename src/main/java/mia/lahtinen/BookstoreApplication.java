@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import mia.lahtinen.domain.Book;
-import mia.lahtinen.domain.BookRepository;
 import mia.lahtinen.domain.Category;
 import mia.lahtinen.domain.CategoryRepository;
 
